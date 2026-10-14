@@ -1,7 +1,7 @@
 
 export type VehicleType = 'Motor' | 'Others';
 export type InsuranceType = 'Comprehensive' | 'Third Party' | 'Fire & Theft';
-export type OthersCategory = 'Public Liability' | 'Contractor All Risk' | "Workmen's Compensation" | 'Bond';
+export type OthersCategory = 'Public Liability' | 'Contractor All Risk' | "Workmen's Compensation" | 'Bond' | 'Personal Accident';
 export type DocType = 'Invoice' | 'Receipt';
 
 /** For Others: one category with its insurance amount */
