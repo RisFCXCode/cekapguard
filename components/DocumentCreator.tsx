@@ -685,17 +685,18 @@ const DocumentCreator: React.FC<CreatorProps> = ({
                       </div>
                       {formData.othersEntries.map((entry, idx) => (
                         <div key={idx} className="flex gap-2 items-center">
-                          <select
-                            className={`${inputClass} flex-1 pl-3 appearance-none`}
+                          <input
+                            type="text"
+                            list="others-category-suggestions"
+                            placeholder="Select or type a category"
+                            className={`${inputClass} flex-1 pl-3`}
                             value={entry.category}
                             onChange={e => {
                               const next = [...formData.othersEntries];
-                              next[idx] = { ...next[idx], category: e.target.value as OthersCategory };
+                              next[idx] = { ...next[idx], category: e.target.value };
                               setFormData({ ...formData, othersEntries: next });
                             }}
-                          >
-                            {OTHERS_CATEGORIES.map(cat => <option key={cat} value={cat}>{cat}</option>)}
-                          </select>
+                          />
                           <div className="relative w-28">
                             <span className="absolute left-2 top-1/2 -translate-y-1/2 text-[10px] text-slate-400">RM</span>
                             <input
@@ -721,6 +722,9 @@ const DocumentCreator: React.FC<CreatorProps> = ({
                           </button>
                         </div>
                       ))}
+                      <datalist id="others-category-suggestions">
+                        {OTHERS_CATEGORIES.map(cat => <option key={cat} value={cat} />)}
+                      </datalist>
                     </div>
                     <div className="space-y-3 pt-2">
                       <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-1 flex items-center gap-2">
